@@ -3,10 +3,85 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Freediving</title>
+    <title>diving</title>
+    <link rel="stylesheet" href="css/homework1.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script> 
 </head>
 
 <body>
+
+    <header>
+       <h1>DIVING</h1>
+   
+       <nav>
+        <a href="#">Scuba Diving</a>
+        <a href="#">Free Diving</a>
+        </nav>
+
+    </header>
+
+    <div class="ocean-container">
+    
+        <!-- 2. 海面圖 -->
+        <div class="hero">
+            <img src="images/2.jpg" alt="hero">
+        </div>
+    
+    <!-- 浮球 -->
+        <model-viewer 
+        id="model-1"
+        src="assets/DRIVING.glb" alt="3D 模型" 
+        auto-rotate 
+        camera-controls 
+        disable-zoom 
+        ar>
+        </model-viewer>
+     <!-- 繩子 -->
+        <model-viewer 
+        id="model-2"
+        src="assets/DRIVING2.glb" alt="3D 模型" 
+        auto-rotate 
+        camera-controls 
+        disable-zoom
+        min-camera-orbit="auto 90deg auto"
+        max-camera-orbit="auto 90deg auto" 
+        ar>
+        </model-viewer>
+
+    </div>
+
+    <section>
+     <!--card section-->
+    <h1>— 潛水三寶 —</h1>
+        <!--card-->
+        <div class="card-list">
+            <div class="card">
+                <a href="#">
+                <img src="images/f1.jpg">
+                <h2>面鏡</h2>
+                </a>
+            </div>
+
+            <div class="card">
+                <a href="#">
+                <img src="images/f2.jpg">
+                <h2>呼吸管</h2>
+                </a>
+            </div>
+
+            <div class="card">
+                <a href="#">
+                <img src="images/f3.jpg">
+                <h2>蛙鞋</h2>
+                </a>
+            </div>
+         </div>
+
+    </section>
+
+<footer>
+    All Right Reserved.
+</footer>
 
 </body>
 
