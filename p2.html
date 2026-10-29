@@ -4,81 +4,116 @@
 <head>
     <meta charset="utf-8">
     <title>diving</title>
-    <link rel="stylesheet" href="css/homework1.css">
+    <link rel="stylesheet" href="css/p2.css">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script> 
 </head>
 
 <body>
 
-    <header>
-       <h1>DIVING</h1>
-   
-       <nav>
-        <a href="#">Scuba Diving</a>
-        <a href="#">Free Diving</a>
-        </nav>
+  <!-- 上方區塊（佔滿一頁作為對照） -->
+  <section class="normal-section">
+    <h1>上方一般內容區塊</h1>
+  </section>
 
-    </header>
-
-    <div class="ocean-container">
-    
-        <!-- 2. 海面圖 -->
-        <div class="hero">
-            <img src="images/2.jpg" alt="hero">
+  <!-- 橫向滑動區塊容器（提供縱向滾動距離，但不影響視覺高度） -->
+  <div class="scroll-track-container">
+    <div class="sticky-viewport">
+      
+      <!-- 橫向滾動軌道 -->
+      <div class="horizontal-track">
+        
+        <!-- 項目 01 -->
+        <div class="item">
+          <div class="graphic">
+            <!-- 示意圖形/石頭 -->
+            <div class="rock-placeholder"></div>
+          </div>
+          <div class="text-content">
+            <span class="num">01</span>
+            <h2>數位形象企劃</h2>
+            <p>以動態特效為核心、網站設計為起點，為客戶提供全麵的數位創意解決方案。</p>
+          </div>
         </div>
-    
-    <!-- 浮球 -->
-        <model-viewer 
-        id="model-1"
-        src="assets/DRIVING.glb" alt="3D 模型" 
-        auto-rotate 
-        camera-controls 
-        disable-zoom 
-        ar>
-        </model-viewer>
-     <!-- 繩子 -->
-        <model-viewer 
-        id="model-2"
-        src="assets/DRIVING2.glb" alt="3D 模型" 
-        auto-rotate 
-        camera-controls 
-        disable-zoom
-        min-camera-orbit="auto 90deg auto"
-        max-camera-orbit="auto 90deg auto" 
-        ar>
-        </model-viewer>
 
+        <!-- 項目 02 -->
+        <div class="item">
+          <div class="graphic">
+            <div class="rock-placeholder"></div>
+          </div>
+          <div class="text-content">
+            <span class="num">02</span>
+            <h2>網站策略顧問</h2>
+            <p>深入了解客戶需求和目標，協助數位形象和品牌價值提升，針對未製作、正製作、已製作為主的數位策略。</p>
+          </div>
+        </div>
+
+        <!-- 項目 03 -->
+        <div class="item">
+          <div class="graphic">
+            <div class="rock-placeholder"></div>
+          </div>
+          <div class="text-content">
+            <span class="num">03</span>
+            <h2>品牌視覺識別</h2>
+            <p>提供一致、專業且具有差異化的品牌識別，營造出符合核心價值的視覺風格。</p>
+          </div>
+        </div>
+
+        <!-- 項目 04 (最後一項) -->
+        <div class="item">
+          <div class="graphic">
+            <div class="rock-placeholder"></div>
+          </div>
+          <div class="text-content">
+            <span class="num">04</span>
+            <h2>動態互動開發</h2>
+            <p>結合當代網頁技術，打造極致流暢的視覺體驗與互動架構。</p>
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div class="graphic">
+          </div>
+          <div class="text-content">
+            <span class="num"></span>
+            <h2></h2>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="graphic">
+          </div>
+          <div class="text-content">
+            <span class="num"></span>
+            <h2></h2>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="graphic">
+          </div>
+          <div class="text-content">
+            <span class="num"></span>
+            <h2></h2>
+            <p></p>
+          </div>
+        </div>
+        
+
+      </div>
     </div>
+  </div>
 
-    <section>
-     <!--card section-->
-    <h1>— 潛水三寶 —</h1>
-        <!--card-->
-        <div class="card-list">
-            <div class="card">
-                <a href="#">
-                <img src="images/f1.jpg">
-                <h2>面鏡</h2>
-                </a>
-            </div>
+  <!-- 下方區塊（必須全部橫移完才會滾動到這裡） -->
+  <section class="normal-section">
+    <h1>下方一般內容區塊（橫向滑完後抵達）</h1>
+  </section>
 
-            <div class="card">
-                <a href="#">
-                <img src="images/f2.jpg">
-                <h2>呼吸管</h2>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="#">
-                <img src="images/f3.jpg">
-                <h2>蛙鞋</h2>
-                </a>
-            </div>
-         </div>
-
-    </section>
-
+</body>
+    
 <footer>
     All Right Reserved.
 </footer>

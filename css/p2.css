@@ -1,0 +1,135 @@
+** {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", sans-serif;
+  color: #111;
+  background-color: #ffffff;
+}
+
+/* 上下一般區塊 */
+.normal-section {
+  height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+/* 
+  1. 外層容器：
+  高度設為 350vh，代表滑動這段距離時，都在做「橫向移動」。
+  高度越大，滾動時橫移的速度越慢、越好控制。
+*/
+.scroll-track-container {
+  height: 350vh;
+  position: relative;
+  /* 宣告滾動時間軸 */
+  view-timeline-name: --slide-timeline;
+  view-timeline-axis: block;
+}
+
+/* 
+  2. 釘選視窗（不是整頁，高度約 500px～65vh）：
+  讓框框保持在畫面中央，不要佔滿整個瀏覽器頁面
+*/
+.sticky-viewport {
+  position: sticky;
+  /* top 與高度依你想要固定的垂直位置調整 */
+  top: calc(50vh - 250px); /* 垂直置中於視窗 (假設高度為 500px) */
+  height: 500px;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* 
+  3. 橫向軌道：
+  寬度自動依內容撐開，寬度完全由 flex 項目決定
+*/
+.horizontal-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 80px;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  width: max-content;
+  will-change: transform;
+
+  /* 1. 加上 both：確保超出範圍時保留最後停留的狀態，不彈回開頭 */
+  animation: scroll-x-full linear both;
+  animation-timeline: --slide-timeline;
+
+  /* 2. 調整動畫範圍：從容器頂部碰到視窗上方 (contain 0%) 到完全離開 (exit 100%) */
+  animation-range: contain 0% exit 100%;
+}
+
+/* 
+  4. 位移量關鍵影格：
+  - 100% 代表整條軌道總寬
+  - 100vw 代表螢幕寬度
+  這兩個相減就是「把最後一個卡片剛好滑到靠齊螢幕右側/最底」所需的精準距離。
+  不會提早滾走，也不會留下大段空白。
+*/
+@keyframes scroll-x-full {
+  to {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
+
+/* --- 卡片與內容尺寸設計（配合你的範例版型） --- */
+
+.item {
+  flex: 0 0 420px; /* 固定寬度，不被擠壓 */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* 上方放置圖形或石頭圖片的位置 */
+.graphic {
+  height: 220px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.rock-placeholder {
+  width: 180px;
+  height: 140px;
+  background: #333;
+  clip-path: polygon(25% 0%, 75% 10%, 100% 50%, 80% 90%, 20% 85%, 0% 40%);
+  opacity: 0.85;
+}
+
+/* 文字排版 */
+.text-content .num {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.text-content h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.text-content p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+}
