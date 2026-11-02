@@ -1,14 +1,9 @@
 body {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(26, 205, 255);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
-
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.1rem; margin: 12px 0 0; }
 
 /* ===== 連結 ===== */
 a {
@@ -18,25 +13,51 @@ a {
 }
 
 a:hover {
-  color: rgba(0, 0, 0, 0);
+  color: rgba(211, 211, 211, 0.958);
 }
 
+
 /* ===== 導覽列 ===== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px); /* 毛玻璃特效 */
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between; /* 左右元素貼齊兩端 */
+  align-items: center;            /* 內部元素垂直置中 */
+  padding: 0 80px;                /* 左右邊距 */
+  box-sizing: border-box;         /* 寬度鎖定 */
+}
+
+
+h1{
+  font-size: 36px;
+  margin: 10px 0;
+  color: rgba(0, 0, 0, 1.0);
+}
+
 nav {
-  color: rgba(0, 0, 0, 1.0)
+  font-size: 20px;
+  color: rgb(61, 61, 61);
+  font-weight: 600;  /* 字體加粗 */
+  letter-spacing: 1px; /* 增加字距 */
 }
 
 nav a {
-  color: #333333;
   margin: 0 10px;
   padding: 10px;
-  background-color: rgba(229, 228, 228, 0.8);
   border-radius: 5px;
 }
 
 nav a:hover {
-  text-decoration: underline;
-  background-color: rgba(255, 255, 255, 1);
+  color: #aaaaaa;
+  text-decoration: none;
 }
 
 .ocean-container {
@@ -51,15 +72,15 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 1800px;
-  overflow: hidden;
+  overflow: hidden; /* 隱藏溢出內容 */
   z-index: 1;   
   }
 
   .hero img {
   width: 100%;
   height: 1800px;
-  object-position: center top;    
-  display: block;
+  object-position: center top;    /* 圖片對齊方式：置中且貼齊上方 */
+  display: block;    /* 消除圖片下方預設的微小空白間隙 */
   }
 
 #model-1 {
@@ -67,7 +88,6 @@ nav a:hover {
   top: 150px;
   width: 100%;
   height: 350px;
-  margin: 0 auto;
   z-index: 3;
 }
 
@@ -76,7 +96,6 @@ nav a:hover {
   top: 350px;
   width: 100%;
   height: 1600px;
-  margin: 0 auto;
   z-index: 2;
 }
 
@@ -92,7 +111,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px; /* 卡片之間的間距 */
+  gap: 200px; /* 卡片之間的間距 */
 }
 
 .card {
@@ -100,7 +119,7 @@ section {
   display: inline-block;
   margin: 20px auto;
   padding: 30px;
-  max-width: 100px;
+  max-width: 300px;
   background-color: rgb(252, 249, 249);
   border-radius: 10px;
 }

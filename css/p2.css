@@ -1,4 +1,4 @@
-** {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -10,9 +10,62 @@ body {
   background-color: #ffffff;
 }
 
+/* ===== 連結 ===== */
+a {
+  color: rgba(0, 0, 0, 1.0);
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover {
+  color: rgba(211, 211, 211, 0.958);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px); /* 毛玻璃特效 */
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between; /* 左右元素貼齊兩端 */
+  align-items: center;            /* 內部元素垂直置中 */
+  padding: 0 80px;                /* 左右邊距 */
+  box-sizing: border-box;         /* 寬度鎖定 */
+}
+
+
+h1{
+  font-size: 36px;
+  margin: 10px 0;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+nav {
+  font-size: 20px;
+  color: rgb(61, 61, 61);
+  font-weight: 600;  /* 字體加粗 */
+  letter-spacing: 1px; /* 增加字距 */
+}
+
+nav a {
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+
 /* 上下一般區塊 */
 .normal-section {
-  height: 150vh;
+  height: 120vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +109,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: 80px;
+  gap: 250px;
   padding-left: 10vw;
   padding-right: 10vw;
   width: max-content;
@@ -74,8 +127,6 @@ body {
   4. 位移量關鍵影格：
   - 100% 代表整條軌道總寬
   - 100vw 代表螢幕寬度
-  這兩個相減就是「把最後一個卡片剛好滑到靠齊螢幕右側/最底」所需的精準距離。
-  不會提早滾走，也不會留下大段空白。
 */
 @keyframes scroll-x-full {
   to {
@@ -94,7 +145,7 @@ body {
   position: relative;
 }
 
-/* 上方放置圖形或石頭圖片的位置 */
+/* 上方圖片的位置 */
 .graphic {
   height: 220px;
   width: 100%;
@@ -104,12 +155,49 @@ body {
   margin-bottom: 24px;
 }
 
-.rock-placeholder {
-  width: 180px;
-  height: 140px;
-  background: #333;
-  clip-path: polygon(25% 0%, 75% 10%, 100% 50%, 80% 90%, 20% 85%, 0% 40%);
-  opacity: 0.85;
+.graphic img {
+  max-width: 80%;    /* <--- 讓圖片不要佔滿整行，留一點左右邊距 (可改 70%~90%) */
+  max-height: 100%;  /* 配合外層容器的高度 */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* 保持原比例、不裁切、不變形 */
+  display: block;
+
+/* 綁定浮動動畫：動畫名稱、持續時間、緩動函數、無限循環 */
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+/* 定義上下晃動的軌跡 */
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);    /* 起始與結束位置：原位 */
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) ; /* 往上漂浮*/
+    transform: rotate(10deg);
+  }
+}
+
+article{
+	flex:0 0 100%;
+	margin:auto;
+    margin-bottom: 30px;
+    border:solid 4px rgba(87, 117, 144, 1);
+    border-radius: 50px;
+    box-sizing: border-box;
+
+    display:flex;
+    align-items: center; /* 讓圖片與文字內容垂直置中 */
+   overflow: hidden;    /* 確保圓角邊界不會被內容溢出破壞 */
+}
+
+article img {
+  object-fit: contain;
+  flex: 0 0 40%;       /* 佔卡片寬度的 40% (可依版面自由調整，例如 300px) */
+  height: 220px;
+  padding: 16px;
+  display: block;
 }
 
 /* 文字排版 */
@@ -133,3 +221,4 @@ body {
   color: #666;
   line-height: 1.7;
 }
+
