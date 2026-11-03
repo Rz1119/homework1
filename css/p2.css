@@ -6,10 +6,9 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   color: #111;
-  background-color: #3c99eb;
+  background-color: #feffff;
+  padding-top: 60px;
 }
 
 /* ===== 連結 ===== */
@@ -36,12 +35,11 @@ header {
   justify-content: space-between; /* 左右元素貼齊兩端 */
   align-items: center;            /* 內部元素垂直置中 */
   padding: 0 80px;                /* 左右邊距 */
-  box-sizing: border-box;         /* 寬度鎖定 */
 }
 
 
-h1{
-  font-size: 36px;
+header h1{
+  font-size: 30px;
   margin: 10px 0;
   color: rgba(0, 0, 0, 1.0);
 }
@@ -64,30 +62,66 @@ nav a:hover {
   text-decoration: none;
 }
 
+  /*hero*/
+  .hero{
+      position: relative;   
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+  }
 
-/* 上下一般區塊 */
-.normal-section {
-  height: 200vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #eee;
+  .hero img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+  }
+
+  .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 0, 0, 0.309);
+  z-index: 2;
 }
 
+  .hero h1{
+      position: absolute;
+      top: 150px;
+      left: 5%;
+      font-size: 60pt;
+      color: rgb(255, 255, 255);
+      z-index: 3;
+  }
 
-/*marquee*/
-.marquee{
+  .hero p{
+      position: absolute;
+      top: 240px;
+      left: 5%;
+      font-size: 20pt;
+      color: rgb(255, 255, 255);
+      z-index: 3;
+  }
+
+
+  /*marquee*/
+.marquee {
     width: 100%;
     overflow: hidden;
-    color: rgb(10, 10, 10);
-    padding: 20px 0;
+    color: #000000;
+    background-color: rgba(215, 240, 255, 0.844);
+    padding: 10px 0;
 }
 
 .marquee-track{
     display: flex;
     width: max-content;
-    animation: marquee 10s linear infinite;
+    animation: marquee 12s linear infinite;
 }
 
 @keyframes marquee{
@@ -101,104 +135,73 @@ nav a:hover {
 
 .marquee-content{
     flex-shrink: 0;
-    padding-right: 0px;
     white-space: nowrap;
     font-size: max(1.5rem, 1vw); 
 }
 
 
-/* 
-  1. 外層容器：
-  高度設為 350vh，代表滑動這段距離時，都在做「橫向移動」。
-  高度越大，滾動時橫移的速度越慢、越好控制。
-*/
-.scroll-track-container {
-  height: 350vh;
-  position: relative;
-  /* 宣告滾動時間軸 */
-  view-timeline-name: --slide-timeline;
-  view-timeline-axis: block;
-}
-
-/* 
-  2. 釘選視窗（不是整頁，高度約 500px～65vh）：
-  讓框框保持在畫面中央，不要佔滿整個瀏覽器頁面
-*/
-.sticky-viewport {
-  position: sticky;
-  top: calc(50vh - 250px); /* 如果高度增加，可以稍微調高這裡讓它完美置中 */
-  height: 500px;           /* 稍微增加高度以容納上下跑馬燈 */
-  width: 100vw;
-  overflow: hidden;        
-  
-  /* 關鍵：改成直向排列，讓上下跑馬燈跟中間區塊綁在一起 */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* 跑馬燈貼頂貼底，中間留給內容 */
-  background-color: #ffffff; /* 確保背景不透明，才不會跟底下的東西糊在一起 */
-}
-
-.inner-marquee {
-  width: 100%;
-  padding: 8px 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 10;
-  flex-shrink: 0; /* 防止跑馬燈被擠壓變形 */
-}
-
-/* 上方跑馬燈釘選在畫面頂端 */
-.sticky-top-marquee {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.9); /* 半透明背景，避免背後內容透過去 */
-  backdrop-filter: blur(5px);
-}
-
-/* 下方跑馬燈釘選在畫面底端 */
-.sticky-bottom-marquee {
-  position: sticky;
-  bottom: 0;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(5px);
-}
-
-/* 
-  3. 橫向軌道：
-  寬度自動依內容撐開，寬度完全由 flex 項目決定
-*/
-.horizontal-track {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 250px;
-  padding-left: 10vw;
-  padding-right: 10vw;
-  width: max-content;
-  will-change: transform;
-/* 微調卡片與跑馬燈之間的距離 */
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  /* 1. 加上 both：確保超出範圍時保留最後停留的狀態，不彈回開頭 */
-  animation: scroll-x-full linear both;
-  animation-timeline: --slide-timeline;
-
-  /* 2. 調整動畫範圍：從容器頂部碰到視窗上方 (contain 0%) 到完全離開 (exit 100%) */
-  animation-range: contain 0% exit 100%;
-}
-
-/* 
-  4. 位移量關鍵影格：
-  - 100% 代表整條軌道總寬
-  - 100vw 代表螢幕寬度
-*/
-@keyframes scroll-x-full {
-  to {
-    transform: translateX(calc(-100% + 100vw));
+  /* 
+    1. 外層容器：
+    高度代表滑動這段距離時，都在做橫向移動。
+    高度越大，滾動時橫移的速度越慢、越好控制。
+  */
+  .scroll-track-container {
+    height: 350vh;
+    position: relative;
+    /* 宣告滾動時間軸 */
+    view-timeline-name: --slide-timeline;
+    view-timeline-axis: block;
   }
-}
+
+  /* 
+    2. 釘選視窗
+    讓框框保持在畫面中央，不要佔滿整個瀏覽器頁面
+  */
+  .sticky-viewport {
+    position: sticky;
+    top: calc(50vh - 250px); /* 如果高度增加，可以稍微調高這裡讓它完美置中 */
+    height: 500px;   
+    width: 100vw;
+    overflow: hidden;        
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+
+
+  /* 
+    3. 橫向軌道：
+    寬度自動依內容撐開
+  */
+  .horizontal-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 250px;
+    padding: 10px 10vw;
+    width: max-content;
+    will-change: transform;
+
+    /* 1. 加上 both：確保超出範圍時保留最後停留的狀態，不彈回開頭 */
+    animation: scroll-x-full linear both;
+    animation-timeline: --slide-timeline;
+
+    /* 2. 調整動畫範圍：從容器頂部碰到視窗上方 (contain 0%) 到完全離開 (exit 100%) */
+    animation-range: contain 0% exit 100%;
+  }
+
+  /* 
+    4. 位移量關鍵影格：
+    - 100% 代表整條軌道總寬
+    - 100vw 代表螢幕寬度
+  */
+  @keyframes scroll-x-full {
+    to {
+      transform: translateX(calc(-100% + 100vw));
+    }
+  }
 
 /* --- 卡片與內容尺寸設計（配合你的範例版型） --- */
 
@@ -208,7 +211,6 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
 }
 
 /* 上方圖片的位置 */
@@ -222,7 +224,7 @@ nav a:hover {
 }
 
 .graphic img {
-  max-width: 80%;    /* <--- 讓圖片不要佔滿整行，留一點左右邊距 (可改 70%~90%) */
+  max-width: 90%;
   max-height: 100%;  /* 配合外層容器的高度 */
   width: auto;
   height: auto;
@@ -245,26 +247,85 @@ nav a:hover {
   }
 }
 
-article{
-	flex:0 0 100%;
-	margin:auto;
-    margin-bottom: 30px;
-    border:solid 4px rgba(87, 117, 144, 1);
-    border-radius: 50px;
-    box-sizing: border-box;
-
-    display:flex;
-    align-items: center; /* 讓圖片與文字內容垂直置中 */
-   overflow: hidden;    /* 確保圓角邊界不會被內容溢出破壞 */
+h4 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
-article img {
-  object-fit: contain;
-  flex: 0 0 40%;       /* 佔卡片寬度的 40% (可依版面自由調整，例如 300px) */
-  height: 220px;
-  padding: 16px;
-  display: block;
+h5 {
+  color: #545454;
+  font-weight: 200;
+  font-size: 16px;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+  text-align: center;
 }
+
+.cards-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 單張卡片樣式 */
+.card {
+    width: 300px;
+    height: 350px;
+    background: #ffffff;
+    border-radius: 20px;
+    position: relative; /* 讓右下角的圖片能以卡片為基準進行絕對定位 */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* 滑鼠懸停（Hover）互動效果：卡片向上浮起與陰影加深 */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 文字說明區塊 */
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+    padding-right: 70px; /* 預留右下角圖片空間 */
+}
+
+.card-title {
+    font-size: 18pt;
+    font-weight: 600;
+    color: #1d1d1f;
+    letter-spacing: 1px;
+}
+
+.card-text {
+    font-size: 10pt;
+    color: #6e6e73;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+/* 每張卡片右下角的圖片 */
+.card-corner-img {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+
 
 /* 文字排版 */
 .text-content .num {
@@ -275,7 +336,7 @@ article img {
   margin-bottom: 12px;
 }
 
-.text-content h2 {
+.text-content h3 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 12px;
@@ -286,4 +347,108 @@ article img {
   font-size: 15px;
   color: #666;
   line-height: 1.7;
+}
+
+
+/*for tablets*/
+@media only screen and (max-width: 1200px) {
+}
+
+/*for mobile*/
+@media only screen and (max-width: 768px) {
+
+body{
+    font-size: 1.3rem;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0 0 10px 0; /* 標題與下方選單保持一點距離 */
+  color: rgba(0, 0, 0, 1.0);
+  text-align: center;
+}
+
+nav {
+  font-size: 14px;
+  color: rgb(61, 61, 61);
+  font-weight: 600;
+  letter-spacing: 1px;
+  
+  /* 關鍵：讓底下的四個選項變成水平並排（平行） */
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  flex-wrap: nowrap; /* 確保絕對不換行 */
+}
+
+nav a {
+  margin: 0 4px; /* 把左右間距縮小（原本可能是 8px 或 10px） */
+  padding: 4px 6px;
+  white-space: nowrap; /* 強制文字不折行 */
+  border-radius: 5px;
+}
+
+.hero h1{
+      position: absolute;
+      top: 180px;
+      left: 20px;
+      font-size: 46px;
+      color: rgb(255, 255, 255);
+  }
+
+   .hero p{
+      position: absolute;
+      top: 250px;
+      left: 20px;
+      font-size: 12pt;
+      color: rgb(255, 255, 255);
+      z-index: 3;
+  }
+  
+  .scroll-track-container {
+    height: 300vh;
+  }
+
+  .sticky-viewport {
+    top: calc(50vh - 200px);
+    height: 420px;
+  }
+
+  .horizontal-track {
+    gap: 80px;
+    padding: 10px 5vw;
+  }
+
+  .item {
+    flex: 0 0 280px; 
+  }
+
+  .graphic {
+    height: 160px;
+  }
+
+  .text-content h3 {
+    font-size: 20px;
+  }
+
+  .text-content p {
+    font-size: 14px;
+  }
 }

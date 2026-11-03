@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(232, 235, 236);
+  background-color: rgb(254, 254, 254);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -35,9 +35,13 @@ header {
   box-sizing: border-box;         /* 寬度鎖定 */
 }
 
+#menu-toggle {
+    display: none;
+}
+
 
 h1{
-  font-size: 36px;
+  font-size: 30px;
   margin: 10px 0;
   color: rgba(0, 0, 0, 1.0);
 }
@@ -97,4 +101,61 @@ nav a:hover {
   width: 100%;
   height: 1600px;
   z-index: 2;
+}
+
+/*for tablets*/
+@media only screen and (max-width: 1200px) {
+}
+
+/*for mobile*/
+@media only screen and (max-width: 768px) {
+
+body{
+    font-size: 1.3rem;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0 0 10px 0; /* 標題與下方選單保持一點距離 */
+  color: rgba(0, 0, 0, 1.0);
+  text-align: center;
+}
+
+nav {
+  font-size: 14px;
+  color: rgb(61, 61, 61);
+  font-weight: 600;
+  letter-spacing: 1px;
+  
+  /* 關鍵：讓底下的四個選項變成水平並排（平行） */
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  flex-wrap: nowrap; /* 確保絕對不換行 */
+}
+
+nav a {
+  margin: 0 4px; /* 把左右間距縮小（原本可能是 8px 或 10px） */
+  padding: 4px 6px;
+  white-space: nowrap; /* 強制文字不折行 */
+  border-radius: 5px;
+}
+
 }

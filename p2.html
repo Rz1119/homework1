@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>diving</title>
     <link rel="stylesheet" href="css/p2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script> 
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,41 +28,38 @@
 
     </header>
 
-  <!-- 上方區塊（佔滿一頁作為對照） -->
-  <section class="normal-section">
-    <h1>111</h1>
-  </section>
+
+  <!--hero0-->
+<div class="hero">
+    <img src="images/sea.jpg" alt="hero">
+    <div class="hero-overlay"></div>
+    <h1>Freediving</h1>
+    <p>An act of swimming deep under water without using breathing equipment.</p>
+</div>
+
+<div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-content">
+         ◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.
+         ◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+        ◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.
+         ◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.◦⋅ 𓆟◦. 𓆝 𓆝◦⋅◦𓆟 𓆞◦⋅  𓆝.◦.
+          </div>
+        </div>
+</div>
+
 
   <!-- 橫向滑動區塊容器（提供縱向滾動距離，但不影響視覺高度） -->
   <div class="scroll-track-container">
     <div class="sticky-viewport">
 
-<!-- 【上方跑馬燈】 -->
-      <div class="marquee inner-marquee">
-        <div class="marquee-track">
-          <div class="marquee-content">
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-          </div>
-          <div class="marquee-content" aria-hidden="true">
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-          </div>
-        </div>
-      </div>
       
 <!-- 橫向滾動軌道 -->
          <!-- 項目 00 -->
       <div class="horizontal-track">
-        <div class="item">
-          <div class="graphic"></div>
-              <div class="text-content">
-              <span class="num"></span>
-              <h2></h2>
-              <p></p>
-          </div>
-        </div>
-
+       
         <!-- 項目 01 -->
         <div class="item">
           <div class="graphic">
@@ -70,7 +68,7 @@
           </div>
           <div class="text-content">
             <span class="num">01</span>
-            <h2>Manta</h2>
+            <h3>Manta</h3>
             <p>翼展可達數公尺，性情溫和，喜歡定期到定點讓小魚清理身體。</p>
           </div>
         </div>
@@ -83,7 +81,7 @@
           </div>
           <div class="text-content">
             <span class="num">02</span>
-            <h2>Jellyfish</h2>
+            <h3>Jellyfish</h3>
             <p>沒有大腦與心臟，部分種類甚至能逆生長達到理論上的永生。</p>
           </div>
         </div>
@@ -96,7 +94,7 @@
           </div>
           <div class="text-content">
             <span class="num">03</span>
-            <h2>Swordfish</h2>
+            <h3>Swordfish</h3>
             <p>游速極快且攻擊力強，那根長喙連木船都能刺穿。</p>
           </div>
         </div>
@@ -115,68 +113,54 @@
         </div>
 
         <!-- 項目 空白 -->
-        <div class="item"><div class="graphic"></div><div class="text-content"><span class="num"></span><h2></h2><p></p></div></div>
-        <div class="item"><div class="graphic"></div><div class="text-content"><span class="num"></span><h2></h2><p></p></div></div>
-        <div class="item"><div class="graphic"></div><div class="text-content"><span class="num"></span><h2></h2><p></p></div></div>
+        <div class="item"><div class="graphic"></div><div class="text-content"><span class="num"></span><h3></h3><p></p></div></div>
+        <div class="item"><div class="graphic"></div><div class="text-content"><span class="num"></span><h3></h3><p></p></div></div>
+        <div class="item"><div class="graphic"></div><div class="text-content"><span class="num"></span><h3></h3><p></p></div></div>
       </div>
-
-      <!-- 【下方跑馬燈】 -->
-      <div class="marquee inner-marquee">
-        <div class="marquee-track">
-          <div class="marquee-content">
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-          </div>
-          <div class="marquee-content" aria-hidden="true">
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-            °◦.○ ˚  °  <º)))><   ° ◦ ∘ ◦ °   <º)))><    ° ◦ O° ◦ O   <º)))><    ° ◦°◦.○ ˚ °
-          </div>
-        </div>
-      </div>
-
       
     </div>
   </div>
 
+
   <!-- 下方區塊（必須全部橫移完才會滾動到這裡） -->
-  <section class="normal-section">
-    <h1>222</h1>
-  </section>
+
+  <h4>What You Need</h4>
+  <h5>Here are some basic diving equipment.</h5>
 
 
-<section>
-  <h1>— More details —</h1>
-  <!--article-->
-  <a href="index.html">
-    <article>
-      <div class="a_left">
-      <img src="images/fish01.jpg" />
-      </div>
+<div class="cards-container">
+        <!-- 卡片 1 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Snorkel</h3>
+                <p class="card-text">呼吸管讓潛水員在水面浮潛或準備下潛時，能夠將臉部留在水中並維持呼吸，有助於保留體力與觀察水面狀況。</p>
+                  <p class="card-text">管身設計通常著重於咬嘴的舒適度、排水閥的便利性以及管口抗浪設計。</p>
+            </div>
+            <img src="images/g1.png" alt="呼吸管" class="card-corner-img">
+        </div>
 
-      <div class="a_right">
-      <h2>About basic layout</h2>
-      <p>本範例以網頁版面配置與互動設計為主軸，先透過 position 與 float 練習元素定位、左右排列與基本版面結構，再進一步加入 hover、transition 與簡易 CSS 動畫效果。透過實際操作，理解 HTML 元素與 CSS 樣式之間的關係，並觀察網頁如何從靜態版面逐步發展成具有視覺回饋與互動效果的頁面。</p>
-      </div>
-    </article>
-  </a>
+        <!-- 卡片 2 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Mask</h3>
+                <p class="card-text">面鏡是水下視野的窗口，主要功能是在眼睛前方創造一個空氣空間，讓人眼能夠在水中正常聚焦。</p>
+                <p class="card-text">挑選時以矽膠裙邊的臉部貼合度、氣密性以及採用強化玻璃的安全性為核心要素。</p>
+            </div>
+            <img src="images/g2.png" alt="面鏡" class="card-corner-img">
+        </div>
 
-  <a href="index.html">
-    <article>
-
-    <div class="a_left">
-    <img src="images/fish01.jpg" />
+        <!-- 卡片 3 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Fins</h3>
+                <p class="card-text">蛙鞋能提供水中的主要推進力，大幅提升移動效率並減少雙腿的體力消耗。</p>
+                <p class="card-text">根據不同的潛水活動需求，蛙鞋在長度、材質硬度以及套腳方式上會有所差異。</p>
+            </div>
+            <img src="images/g3.png" alt="蛙鞋" class="card-corner-img">
+        </div>
     </div>
 
-    <div class="a_right">
-    <h2>About basic layout</h2>
-    <p>本範例以網頁版面配置與互動設計為主軸，先透過 position 與 float 練習元素定位、左右排列與基本版面結構，再進一步加入 hover、transition 與簡易 CSS 動畫效果。透過實際操作，理解 HTML 元素與 CSS 樣式之間的關係，並觀察網頁如何從靜態版面逐步發展成具有視覺回饋與互動效果的頁面。</p>
-    </div>
-    </article>
-  </a>
 
-</section>
-  
-</body>
     
 <footer>
     All Right Reserved.
