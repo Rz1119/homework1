@@ -239,15 +239,15 @@ nav {
   font-weight: 600;
   letter-spacing: 1px;
   
-  /* 關鍵：讓底下的四個選項變成水平並排（平行） */
+  /* 四個選項變成水平並排 */
   display: flex;
   flex-direction: row; 
   justify-content: center;
-  flex-wrap: nowrap; /* 確保絕對不換行 */
+  flex-wrap: nowrap; /* 不換行 */
 }
 
 nav a {
-  margin: 0 4px; /* 把左右間距縮小（原本可能是 8px 或 10px） */
+  margin: 0 4px; /* 把左右間距縮小*/
   padding: 4px 6px;
   white-space: nowrap; /* 強制文字不折行 */
   border-radius: 5px;
