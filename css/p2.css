@@ -146,7 +146,7 @@ nav a:hover {
     高度越大，滾動時橫移的速度越慢、越好控制。
   */
   .scroll-track-container {
-    height: 350vh;
+    height: 900vh;
     position: relative;
     /* 宣告滾動時間軸 */
     view-timeline-name: --slide-timeline;
@@ -238,15 +238,12 @@ nav a:hover {
 /* 定義上下晃動的軌跡 */
 @keyframes floatUpDown {
   0%, 100% {
-    transform: translateY(0);    /* 起始與結束位置：原位 */
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg); 
   }
   50% {
-    transform: translateY(-18px) ; /* 往上漂浮*/
-    transform: rotate(10deg);
+    transform: translateY(-18px) rotate(10deg); 
   }
 }
-
 h4 {
   font-size: 36px;
   font-weight: 500;
