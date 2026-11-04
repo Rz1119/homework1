@@ -261,6 +261,15 @@ h5 {
   text-align: center;
 }
 
+h6 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-top: 200px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
 .cards-container {
     display: flex;
     gap: 24px;
@@ -474,4 +483,12 @@ nav a {
   .text-content p {
     font-size: 14px;
   }
+
+  footer{
+    font-size: 14px;
+    clear: both;
+    width: 100%;
+    padding: 30px 0px 10px;
+    text-align: center;
+}
 }

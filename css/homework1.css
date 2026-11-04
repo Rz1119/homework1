@@ -253,4 +253,12 @@ nav a {
   border-radius: 5px;
 }
 
+  footer{
+    font-size: 14px;
+    clear: both;
+    width: 100%;
+    padding: 10px 0px 10px;
+    text-align: center;
+}
+
 }
